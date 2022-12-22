@@ -25,17 +25,17 @@ int createMenu(struct menu m) {
       switch (option) {
       case 0:
         printf("[==%s==]\n", m.option0);
-        printf("--%s--\n", m.option1);
-        printf("--%s--\n", m.option2);
+        printf("|--%s--|\n", m.option1);
+        printf("|--%s--|\n", m.option2);
         break;
       case 1:
-        printf("--%s--\n", m.option0);
+        printf("|--%s--|\n", m.option0);
         printf("[==%s==]\n", m.option1);
-        printf("--%s--\n", m.option2);
+        printf("|--%s--|\n", m.option2);
         break;
       case 2:
-        printf("--%s--\n", m.option0);
-        printf("--%s--\n", m.option1);
+        printf("|--%s--|\n", m.option0);
+        printf("|--%s--|\n", m.option1);
         printf("[==%s==]\n", m.option2);
         break;
       }
@@ -99,13 +99,14 @@ char *inputBox(char *dialog) {
 }
 void alert(char *title, char *body) {
   system("clear");
-  for (int i = 0; i < strlen(title) / 2; i++) {
+  for (int i = 0; i < strlen(body) / 2; i++) {
     printf("=");
   }
   printf(title);
-  for (int i = 0; i < strlen(title) / 2; i++) {
+  for (int i = 0; i < strlen(body) / 2; i++) {
     printf("=");
   }
   printf("\n");
-  
+  printf("%s\n",body);
+  getchar();
 }
