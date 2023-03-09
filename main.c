@@ -7,7 +7,7 @@ int main(void) {
     if(re == 2)
       exit(0);
     else if(re == 0){
-      char* fileName = inputBox("File Name:");
+      char* fileName = inputBox("File Name:", 0 , '\n');
       FILE* fp = fopen(fileName,"r");
       if(!fp){
         printf("File %s does not exist!\n",fileName);
@@ -19,14 +19,14 @@ int main(void) {
       alert("File",buffer);
     }
     else if(re == 1){
-      char* fileName = inputBox("File Name:");
+      char* fileName = inputBox("File Name:",0,'\n');
       FILE* fp = fopen(fileName,"w");
       if(!fp){
         printf("File %s does not exist!\n",fileName);
         exit(1);
       }
-      char* toAdd = inputBox("Text to append: ");
-      fwrite(toAdd,1, sizeof(toAdd)*30,fp);
+      char* toAdd = inputBox("Text to append: ",1,'\t');
+      fwrite(toAdd,1, sizeof(toAdd)*strlen(toAdd),fp);
     }
   }
   return 0;
